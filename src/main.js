@@ -1,24 +1,35 @@
 import Phaser from 'phaser'
 
+import GameManager from './classes/GameManager'
 import GameScene from './scenes/Game'
 import BootScene from './scenes/Boot'
 
+let game
 let gameOptions = {
   width: 750,
-  height: 1334
+  height: 1334,
+  startRotationSpeed: 2,
+  maxRotationSpeed: 5
 }
 
 window.onload = function() {
-  new Phaser.Game({
+  game = new Phaser.Game({
     type: Phaser.AUTO,
     parent: 'phaser-app',
     width: gameOptions.width,
     height: gameOptions.height,
+    physics: {
+      default: 'arcade',
+      arcade: {
+        debug: false
+      }
+    },
     scene: [BootScene, GameScene]
   });
+  game.gameManager = new GameManager(game, gameOptions)
   window.focus();
   resize();
-  window.addEventListener("resize", resize, !1)
+  window.addEventListener("resize", resize, false)
 }
 
 function resize(){

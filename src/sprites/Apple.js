@@ -8,7 +8,6 @@ export default class Apple extends Phaser.Physics.Arcade.Sprite {
     let y = scene.target.y + scene.target.width / 2 * Math.sin(angleRad)
 
     super(scene, x, y, 'apple_full')
-    console.log(scene.target.width)
     scene.add.existing(this);
     scene.physics.add.existing(this)
 

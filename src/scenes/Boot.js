@@ -51,12 +51,21 @@ export default class BootScene extends Phaser.Scene {
       loadingText.destroy()
       progressText.destroy()
     })
-    this.load.image("enemy_1", "assets/images/enemies/play_enemy_01.png")
-    this.load.image("knife_1", "assets/images/knives/knife-01.png")
+
+    for (let i = 1; i < 7; i++) {
+      this.load.image("boss_" + i, "assets/images/enemies/boss_" + i + ".png")
+    }
+    this.load.image("enemy_1", "assets/images/enemies/enemy_1.png")
+    this.load.image("enemy_2", "assets/images/enemies/enemy_2.png")
+
+    for (let i = 1; i < 21; i++) {
+      this.load.image("knife_" + i, "assets/images/knives/knife_" + i + ".png")
+    }
     this.load.image("apple_full", "assets/images/apple-full.png")
     this.load.image("apple_half", "assets/images/apple-half.png")
 
-    this.load.image("home_bg", "assets/images/home_background.png")
+    this.load.image("title_bg", "assets/images/title_bg.png")
+    this.load.image("game_bg", "assets/images/game_bg.png")
 
     this.load.audio("throw_1", "assets/audio/ev_throw_1.mp3")
     this.load.audio("hit_1", "assets/audio/ev_hit_1.mp3")

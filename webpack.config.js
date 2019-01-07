@@ -19,12 +19,12 @@ module.exports = {
   },
   watch: true,
   plugins: [
-  new webpack.DefinePlugin({
-    __DEV__: JSON.stringify(JSON.parse(process.env.BUILD_DEV || 'true')),
-    WEBGL_RENDERER: true,
-    CANVAS_RENDERER: true
-  }),
-  new BrowserSyncPlugin({
+    new webpack.DefinePlugin({
+      __DEV__: JSON.stringify(JSON.parse(process.env.BUILD_DEV || 'true')),
+      WEBGL_RENDERER: true,
+      CANVAS_RENDERER: true
+    }),
+    new BrowserSyncPlugin({
       host: process.env.IP || 'localhost',
       port: process.env.PORT || 3000,
       server: {
@@ -48,6 +48,5 @@ module.exports = {
       },
       hash: false
     }),
-
   ]
 }
