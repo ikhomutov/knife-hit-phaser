@@ -11,12 +11,23 @@
             overflow			: hidden;
             background-color	: black;
         }
-
         #phaser-app {
             margin			: 0 auto;
             display			: flex;
             flex-direction	: column;
             justify-content	: center;
+        }
+        @font-face {
+            font-family: 'font1';
+            src: url('../assets/fonts/UTM Swiss 721 Black Condensed.ttf');
+            font-weight: 400;
+            font-weight: normal;
+        }
+        .fontLoader {
+          font-family: font1;
+          position: absolute;
+          left: -1000px;
+          visibility: hidden;
         }
 
         canvas {
@@ -28,6 +39,7 @@
 </head>
 
 <body>
-    <div id="phaser-app"></div>
+  <div class="fontLoader">-</div>
+  <div id="phaser-app"></div>
 </body>
 </html>

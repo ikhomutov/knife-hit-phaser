@@ -1,10 +1,13 @@
 export default class GameManager {
   constructor(game, options) {
     this.game = game
-    this.currentRotationSpeed = options.startRotationSpeed
-    this.maxRotationSpeed = options.maxRotationSpeed
+    this.width = options.width
+    this.height = options.height
+    this.centerX = options.width / 2
+    this.centerY = options.height / 2
     this.score = 0
     this.knivesRemain = 0
+    this.hits = 0
     this.level = 5
     this.selectedKnife = 5
     this.soundOn = true

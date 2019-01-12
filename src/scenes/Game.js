@@ -2,7 +2,7 @@ import Phaser from 'phaser'
 
 import Knife from '../sprites/Knife'
 import Target from '../sprites/Target'
-import Apple from '../sprites/Apple'
+import Score from "../prefabs/Score";
 
 
 export default class GameScene extends Phaser.Scene {
@@ -11,7 +11,8 @@ export default class GameScene extends Phaser.Scene {
   }
 
   init() {
-    this.applesCount = 4
+    this.applesCount = 1
+    this.knivesCount = 1
     this.knife = null
     this.target = null
     this.gameManager = this.sys.game.gameManager
@@ -23,16 +24,28 @@ export default class GameScene extends Phaser.Scene {
     this.add.image(0, 0, 'game_bg').setOrigin(0)
     this.spawnKnife()
     this.spawnTarget()
-    this.apples = this.add.group()
-    for (let i = 0; i < this.applesCount; i++) {
-      this.apples.add(new Apple(this, Phaser.Math.Between(0, 360)))
+    for (let i = 0; i < this.knivesCount; i++) {
+      this.target.addKnife(Phaser.Math.Between(0, 360))
     }
-    this.physics.add.overlap(this.knife, this.target, this.hitTarget)
-    this.physics.add.overlap(this.knife, this.apples, (knife, apple) => apple.hit())
+
+    for (let i = 0; i < this.applesCount; i++) {
+      this.target.addApple(Phaser.Math.Between(0, 360))
+    }
+    this.input.on("pointerdown", this.knife.throw, this.knife);
+    this.physics.add.overlap(this.knife, this.target.apples, (knife, apple) => {apple.hit()});
+    new Score(this, this.gameManager.width - 150, 50)
+
   }
   spawnKnife() {
     let knifeKey = "knife_" + this.gameManager.selectedKnife
-    this.knife = new Knife(this, knifeKey)
+    let x = this.sys.game.config.width / 2
+    let y = this.sys.game.config.height / 5 * 4
+
+    this.knife = new Knife(this, x, y, knifeKey)
+
+  }
+  hitApple(knife, apple) {
+    apple.hit()
   }
   spawnTarget() {
     let targetKey = this.gameManager.getTargetName()
@@ -40,18 +53,5 @@ export default class GameScene extends Phaser.Scene {
   }
   update (time, delta) {
     this.target.update(time, delta)
-    this.updateApples(time, delta)
-  }
-  hitTarget (knife, target) {
-    knife.reset()
-    target.hit()
-  }
-  updateApples(time, delta){
-    this.apples.children.iterate(function (apple) {
-      apple.angle += this.gameManager.currentRotationSpeed
-      let e = Phaser.Math.DegToRad(apple.angle - 90)
-      apple.x = this.target.x + this.target.width / 2 * Math.cos(e)
-      apple.y = this.target.y + this.target.width / 2 * Math.sin(e)
-    }, this)
   }
 }

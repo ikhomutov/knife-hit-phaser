@@ -65,7 +65,12 @@ export default class BootScene extends Phaser.Scene {
     this.load.image("apple_half", "assets/images/apple-half.png")
 
     this.load.image("title_bg", "assets/images/title_bg.png")
+    this.load.atlas('title_logo', 'assets/images/title_logo.png', 'assets/images/title_logo.json');
     this.load.image("game_bg", "assets/images/game_bg.png")
+
+    this.load.image('play_btn', 'assets/images/buttons/play.png')
+    this.load.image('settings_btn', 'assets/images/buttons/settings.png')
+    this.load.image('shop_btn', 'assets/images/buttons/shop.png')
 
     this.load.audio("throw_1", "assets/audio/ev_throw_1.mp3")
     this.load.audio("hit_1", "assets/audio/ev_hit_1.mp3")
@@ -73,7 +78,7 @@ export default class BootScene extends Phaser.Scene {
     this.load.audio("knife_hit_1", "assets/audio/ev_knife_hit_1.mp3")
   }
   create () {
-    this.scene.start('GameScene')
+    this.scene.start('TitleScene')
 
   }
 

@@ -1,15 +1,16 @@
 import Phaser from 'phaser'
 
 import GameManager from './classes/GameManager'
-import GameScene from './scenes/Game'
 import BootScene from './scenes/Boot'
+import TitleScene from './scenes/Title'
+import ShopScene from './scenes/Shop'
+import SettingsScene from './scenes/Settings'
+import GameScene from './scenes/Game'
 
 let game
 let gameOptions = {
-  width: 750,
-  height: 1334,
-  startRotationSpeed: 2,
-  maxRotationSpeed: 5
+  width: 720,
+  height: 1280,
 }
 
 window.onload = function() {
@@ -21,10 +22,16 @@ window.onload = function() {
     physics: {
       default: 'arcade',
       arcade: {
-        debug: false
+        debug: true,
       }
     },
-    scene: [BootScene, GameScene]
+    scene: [
+      BootScene,
+      TitleScene,
+      GameScene,
+      ShopScene,
+      SettingsScene
+    ]
   });
   game.gameManager = new GameManager(game, gameOptions)
   window.focus();

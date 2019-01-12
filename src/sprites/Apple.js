@@ -1,23 +1,32 @@
 import Phaser from 'phaser'
 
+import Collider from './Collider'
 
-export default class Apple extends Phaser.Physics.Arcade.Sprite {
+export default class Apple extends Collider {
   constructor(scene, angle) {
-    let angleRad = Phaser.Math.DegToRad(angle);
+    let angleRad = Phaser.Math.DegToRad(angle - 90)
     let x = scene.target.x + scene.target.width / 2 * Math.cos(angleRad)
     let y = scene.target.y + scene.target.width / 2 * Math.sin(angleRad)
+    let appleParticles = scene.add.particles('apple_half').setDepth(2)
 
     super(scene, x, y, 'apple_full')
-    scene.add.existing(this);
-    scene.physics.add.existing(this)
 
-    this.setOrigin(.5, 1)
+    this.emitter = appleParticles.createEmitter({
+      on: false,
+      speed: 200,
+      gravityY: 1000,
+      lifespan: 2000,
+    })
+
+    this.setCircle(32);
     this.angle = angle
-    this.startAngle = angle
-    this.depth = 1
+    this.depth = 2
   }
-  hit () {
+  hit (knife) {
     this.scene.sound.play('apple_hit_1')
+    this.emitter.emitParticle(2, this.x, this.y);
     this.destroy()
+
+    this.gameManager.score += 1
   }
 }
