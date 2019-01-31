@@ -7,5 +7,6 @@ export default class Collider extends Phaser.Physics.Arcade.Sprite {
     scene.add.existing(this)
     scene.physics.add.existing(this);
     this.gameManager = scene.sys.game.gameManager
+    this.soundManager = scene.sys.game.soundManager
   }
 }

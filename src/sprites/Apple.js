@@ -3,10 +3,7 @@ import Phaser from 'phaser'
 import Collider from './Collider'
 
 export default class Apple extends Collider {
-  constructor(scene, angle) {
-    let angleRad = Phaser.Math.DegToRad(angle - 90)
-    let x = scene.target.x + scene.target.width / 2 * Math.cos(angleRad)
-    let y = scene.target.y + scene.target.width / 2 * Math.sin(angleRad)
+  constructor(scene, x, y) {
     let appleParticles = scene.add.particles('apple_half').setDepth(2)
 
     super(scene, x, y, 'apple_full')
@@ -19,7 +16,6 @@ export default class Apple extends Collider {
     })
 
     this.setCircle(32);
-    this.angle = angle
     this.depth = 2
   }
   hit (knife) {

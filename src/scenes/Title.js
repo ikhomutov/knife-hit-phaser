@@ -1,6 +1,6 @@
 import Phaser from 'phaser'
 
-import Score from '../prefabs/Score'
+import AppleCounter from '../prefabs/AppleCounter'
 
 export default class TitleScene extends Phaser.Scene {
   constructor() {
@@ -33,6 +33,6 @@ export default class TitleScene extends Phaser.Scene {
     let settingsBtn = this.add.image(this.gameManager.centerX + 100, playBtnY + 150, 'settings_btn').setInteractive()
     settingsBtn.on('pointerdown', () => this.scene.start('SettingsScene'))
 
-    new Score(this, this.gameManager.width - 150, 50)
+    new AppleCounter(this, this.gameManager.width - 150, 50)
   }
 }

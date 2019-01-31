@@ -1,6 +1,7 @@
 import Phaser from 'phaser'
 
 import GameManager from './classes/GameManager'
+import SoundManager from './classes/SoundManager'
 import BootScene from './scenes/Boot'
 import TitleScene from './scenes/Title'
 import ShopScene from './scenes/Shop'
@@ -11,6 +12,11 @@ let game
 let gameOptions = {
   width: 720,
   height: 1280,
+  debug: true,
+  debugLevel: 5,
+  debugBoss: 7,
+  unlockRandomCost: 100,
+  unlockNowCost: 150,
 }
 
 window.onload = function() {
@@ -22,7 +28,7 @@ window.onload = function() {
     physics: {
       default: 'arcade',
       arcade: {
-        debug: true,
+        debug: gameOptions.debug,
       }
     },
     scene: [
@@ -34,6 +40,7 @@ window.onload = function() {
     ]
   });
   game.gameManager = new GameManager(game, gameOptions)
+  game.soundManager = new SoundManager(game)
   window.focus();
   resize();
   window.addEventListener("resize", resize, false)

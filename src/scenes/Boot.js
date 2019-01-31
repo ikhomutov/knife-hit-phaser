@@ -61,8 +61,10 @@ export default class BootScene extends Phaser.Scene {
     for (let i = 1; i < 21; i++) {
       this.load.image("knife_" + i, "assets/images/knives/knife_" + i + ".png")
     }
+    this.load.image('knife', 'assets/images/Knife.png')
     this.load.image("apple_full", "assets/images/apple-full.png")
     this.load.image("apple_half", "assets/images/apple-half.png")
+    this.load.image("knife_white", "assets/images/play_knife_white_01.png")
 
     this.load.image("title_bg", "assets/images/title_bg.png")
     this.load.atlas('title_logo', 'assets/images/title_logo.png', 'assets/images/title_logo.json');
@@ -71,11 +73,23 @@ export default class BootScene extends Phaser.Scene {
     this.load.image('play_btn', 'assets/images/buttons/play.png')
     this.load.image('settings_btn', 'assets/images/buttons/settings.png')
     this.load.image('shop_btn', 'assets/images/buttons/shop.png')
+    this.load.image('back_btn', 'assets/images/buttons/back.png')
+
+    this.load.image('shop_title', 'assets/images/shop_title.png')
+    this.load.image('shop_counter', 'assets/images/shop_counter.png')
+    this.load.image('shop_item_bg', 'assets/images/shop_item_bg.png')
+    this.load.image('unlock_random_btn', 'assets/images/buttons/unlock_random.png')
+    this.load.image('unlock_now_btn', 'assets/images/buttons/unlock_now.png')
 
     this.load.audio("throw_1", "assets/audio/ev_throw_1.mp3")
     this.load.audio("hit_1", "assets/audio/ev_hit_1.mp3")
     this.load.audio("apple_hit_1", "assets/audio/ev_apple_hit_1.mp3")
     this.load.audio("knife_hit_1", "assets/audio/ev_knife_hit_1.mp3")
+    this.load.audio('shop_select_item', 'assets/audio/ev_shop_select_item.mp3')
+    this.load.audio('shop_select_locked_item', 'assets/audio/ev_shop_select_locked_item.mp3')
+    this.load.audio('shop_unlock', 'assets/audio/ev_shop_unlock.mp3')
+
+    this.load.json('levels', 'assets/levels.json')
   }
   create () {
     this.scene.start('TitleScene')
