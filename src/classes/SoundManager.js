@@ -3,16 +3,9 @@ export default class SoundManager {
     this.game = game
   }
 
-  playSfx(scene, key, vol) {
-    if (!this.game.gameManager.sound) {
-      console.log('soundOff')
-      return
+  playSfx(scene, key) {
+    if (this.game.gameManager.soundOn) {
+      scene.sound.play(key)
     }
-
-    let data = {
-      volume: vol || 1
-    };
-
-    return scene.sound.play(key, data);
   }
 }

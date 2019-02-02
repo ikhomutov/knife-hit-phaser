@@ -13,7 +13,6 @@ export default class GameManager {
     this._knivesRemain = 0
     this._hits = 0
     this._stage = 1
-    this._sound = true
     this.isGameOver = false
   }
   get score() {
@@ -34,11 +33,11 @@ export default class GameManager {
   set highScore(value) {
     localStorage.setItem('highscore', value)
   }
-  get sound() {
-    return parseInt(localStorage.getItem('sound')) || 1
+  get soundOn() {
+    return parseInt(localStorage.getItem('sound') || '1')
   }
-  set sound(value) {
-    localStorage.setItem('sound', value)
+  set soundOn(value) {
+    localStorage.setItem('sound', value ? '1' : '0')
   }
   get selectedKnife() {
     let knife = parseInt(localStorage.getItem('knife'))
