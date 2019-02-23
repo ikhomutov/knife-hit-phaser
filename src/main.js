@@ -14,7 +14,7 @@ let gameOptions = {
   height: 1280,
   debug: true,
   debugLevel: 5,
-  debugBoss: 7,
+  debugBoss: 1,
   unlockRandomCost: 100,
   unlockNowCost: 150,
 }

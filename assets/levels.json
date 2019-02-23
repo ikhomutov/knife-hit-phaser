@@ -1,0 +1,191 @@
+{
+  "stages": [
+    {
+      "stageIndex": 0,
+      "randomLevels": [
+        {
+          "applesPossibility": 1,
+          "applesAngles": [],
+          "knivesAngles": []
+        }
+      ]
+    },
+    {
+      "stageIndex": 1,
+      "randomLevels": [
+        {
+          "applesPossibility": 1,
+          "applesAngles": [
+            0,
+            45,
+            90,
+            135,
+            180,
+            225,
+            270,
+            315
+          ],
+          "knivesAngles": []
+        },
+        {
+          "applesPossibility": 1,
+          "applesAngles": [
+            0,
+            90,
+            180,
+            270
+          ],
+          "knivesAngles": [45, 135, 225, 315]
+        }
+      ]
+    }
+  ],
+  "bosses": [
+    {
+      "bossIndex": 1,
+      "bossName": "Ground",
+      "randomLevels": [
+        {
+          "applesPossibility": 1,
+          "applesAngles": [
+            60,
+            90,
+            120,
+            240,
+            270,
+            300
+          ],
+          "knivesAngles": [
+            0,
+            30,
+            150,
+            180,
+            210,
+            330
+          ]
+        }
+      ]
+    },
+    {
+      "bossIndex": 2,
+      "bossName": "Lid",
+      "randomLevels": [
+        {
+          "applesPossibility": 1,
+          "applesAngles": [
+            0,
+            90,
+            180,
+            270
+          ],
+          "knivesAngles": [
+            30,
+            60,
+            120,
+            150,
+            210,
+            240,
+            300,
+            330
+          ]
+        }
+      ]
+    },
+    {
+      "bossIndex": 3,
+      "bossName": "Meat",
+      "randomLevels": [
+        {
+          "applesPossibility": 1,
+          "applesAngles": [
+            30,
+            60,
+            120,
+            150,
+            210,
+            240,
+            300,
+            330
+          ],
+          "knivesAngles": [
+            0,
+            90,
+            180,
+            270
+          ]
+        }
+      ]
+    },
+    {
+      "bossIndex": 4,
+      "bossName": "Orange",
+      "randomLevels": [
+        {
+          "applesPossibility": 1,
+          "applesAngles": [
+            0,
+            90,
+            180,
+            270
+          ],
+          "knivesAngles": []
+        }
+      ]
+    },
+    {
+      "bossIndex": 5,
+      "bossName": "Tire",
+      "randomLevels": [
+        {
+          "applesPossibility": 1,
+          "applesAngles": [
+            0,
+            72,
+            144,
+            216,
+            288
+          ],
+          "knivesAngles": [
+            36,
+            108,
+            180,
+            252,
+            324
+          ]
+        }
+      ]
+    },
+    {
+      "bossIndex": 6,
+      "bossName": "Watermelon",
+      "randomLevels": [
+        {
+          "applesPossibility": 1,
+          "applesAngles": [
+            20,
+            60,
+            100,
+            140,
+            180,
+            220,
+            260,
+            300,
+            340
+          ],
+          "knivesAngles": [
+            0,
+            40,
+            80,
+            120,
+            160,
+            200,
+            240,
+            280,
+            320
+          ]
+        }
+      ]
+    }
+
+  ]
+}

@@ -6,14 +6,15 @@ export default class Knife extends Collider {
     super(scene, x, y, key)
     this.depth = 0
     this.isFire = false
+    this.isHitted = false
 
   }
   throw () {
     this.isFire = true
-    this.scene.sound.play('throw_1');
+    this.soundManager.playSfx('throw_1');
     this.setVelocityY(-2000)
   }
   hit () {
-    this.scene.sound.play('knife_hit_1')
+    this.soundManager.play('knife_hit_1')
   }
 }

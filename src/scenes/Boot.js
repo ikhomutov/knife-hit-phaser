@@ -65,6 +65,7 @@ export default class BootScene extends Phaser.Scene {
     this.load.image("apple_full", "assets/images/apple-full.png")
     this.load.image("apple_half", "assets/images/apple-half.png")
     this.load.image("knife_white", "assets/images/play_knife_white_01.png")
+    this.load.image("knife_blue", "assets/images/play_knife_blue_01.png")
 
     this.load.image("title_bg", "assets/images/title_bg.png")
     this.load.atlas('title_logo', 'assets/images/title_logo.png', 'assets/images/title_logo.json');

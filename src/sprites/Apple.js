@@ -1,5 +1,3 @@
-import Phaser from 'phaser'
-
 import Collider from './Collider'
 
 export default class Apple extends Collider {
@@ -18,11 +16,9 @@ export default class Apple extends Collider {
     this.setCircle(32);
     this.depth = 2
   }
-  hit (knife) {
-    this.scene.sound.play('apple_hit_1')
+  hit() {
+    this.soundManager.playSfx('apple_hit_1')
     this.emitter.emitParticle(2, this.x, this.y);
     this.destroy()
-
-    this.gameManager.score += 1
   }
 }
